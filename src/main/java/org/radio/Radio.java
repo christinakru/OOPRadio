@@ -3,15 +3,24 @@ package org.radio;
 public class Radio {
     public int currentVolume;
     public int currentStation;
+    public int maxStation;
+
+    public Radio(){
+        maxStation = 9;
+    }
+
+    public Radio(int numStations){
+        maxStation = numStations - 1;
+    }
 
     public void setStation(int station) {
-        if (station >= 0 && station <= 9) {
+        if (station >= 0 && station <= maxStation) {
             currentStation = station;
         }
     }
 
     public void next() {
-        if (currentStation == 9) {
+        if (currentStation == maxStation) {
             currentStation = 0;
         } else {
             currentStation++;
@@ -20,14 +29,14 @@ public class Radio {
 
     public void prev() {
         if (currentStation == 0) {
-            currentStation = 9;
+            currentStation = maxStation;
         } else {
             currentStation--;
         }
     }
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume++;
         }
     }
