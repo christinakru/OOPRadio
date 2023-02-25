@@ -60,6 +60,17 @@ public class RadioTest {
     }
 
     @Test
+    void setWrongStation(){
+        Radio radio = new Radio();
+        radio.setStation(50);
+
+        int exp = 0;
+        int act = radio.getCurrentStation();
+
+        assertEquals(exp, act);
+    }
+
+    @Test
     void incVolume(){
         Radio radio = new Radio();
         radio.increaseVolume();
