@@ -7,23 +7,21 @@ public class RadioTest {
     @Test
     void nextStation(){
         Radio radio = new Radio();
-        radio.currentStation = 0;
         radio.next();
 
         int exp = 1;
-        int act = radio.currentStation;
+        int act = radio.getCurrentStation();
 
         assertEquals(exp, act);
     }
 
     @Test
     void prevStation(){
-        Radio radio = new Radio();
-        radio.currentStation = 1;
+        Radio radio = new Radio(1, 0);
         radio.prev();
 
         int exp = 0;
-        int act = radio.currentStation;
+        int act = radio.getCurrentStation();
 
         assertEquals(exp, act);
     }
@@ -31,23 +29,21 @@ public class RadioTest {
     @Test
     void prevFirstStation(){
         Radio radio = new Radio();
-        radio.currentStation = 0;
         radio.prev();
 
         int exp = 9;
-        int act = radio.currentStation;
+        int act = radio.getCurrentStation();
 
         assertEquals(exp, act);
     }
 
     @Test
     void nextLastStation(){
-        Radio radio = new Radio();
-        radio.currentStation = 9;
+        Radio radio = new Radio(9, 0);
         radio.next();
 
         int exp = 0;
-        int act = radio.currentStation;
+        int act = radio.getCurrentStation();
 
         assertEquals(exp, act);
     }
@@ -55,11 +51,10 @@ public class RadioTest {
     @Test
     void setStation(){
         Radio radio = new Radio();
-        radio.currentStation = 9;
         radio.setStation(5);
 
         int exp = 5;
-        int act = radio.currentStation;
+        int act = radio.getCurrentStation();
 
         assertEquals(exp, act);
     }
@@ -67,23 +62,21 @@ public class RadioTest {
     @Test
     void incVolume(){
         Radio radio = new Radio();
-        radio.currentVolume = 0;
         radio.increaseVolume();
 
         int exp = 1;
-        int act = radio.currentVolume;
+        int act = radio.getCurrentVolume();
 
         assertEquals(exp, act);
     }
 
     @Test
     void decVolume(){
-        Radio radio = new Radio();
-        radio.currentVolume = 1;
+        Radio radio = new Radio(0, 1);
         radio.decreaseVolume();
 
         int exp = 0;
-        int act = radio.currentVolume;
+        int act = radio.getCurrentVolume();
 
         assertEquals(exp, act);
     }
@@ -91,23 +84,21 @@ public class RadioTest {
     @Test
     void decZeroVolume(){
         Radio radio = new Radio();
-        radio.currentVolume = 0;
         radio.decreaseVolume();
 
         int exp = 0;
-        int act = radio.currentVolume;
+        int act = radio.getCurrentVolume();
 
         assertEquals(exp, act);
     }
 
     @Test
     void incMaxVolume(){
-        Radio radio = new Radio();
-        radio.currentVolume = 10;
+        Radio radio = new Radio(0, 10);
         radio.increaseVolume();
 
         int exp = 10;
-        int act = radio.currentVolume;
+        int act = radio.getCurrentVolume();
 
         assertEquals(exp, act);
     }
