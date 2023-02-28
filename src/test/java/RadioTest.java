@@ -76,7 +76,7 @@ public class RadioTest {
         radio.setStation(-5);
 
         int exp = 0;
-        int act = radio.currentStation;
+        int act = radio.getCurrentStation();
 
         assertEquals(exp, act);
     }
@@ -87,7 +87,7 @@ public class RadioTest {
         radio.setStation(10);
 
         int exp = 0;
-        int act = radio.currentStation;
+        int act = radio.getCurrentStation();
 
         assertEquals(exp, act);
     }
