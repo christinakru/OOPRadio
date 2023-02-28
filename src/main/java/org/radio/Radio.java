@@ -1,13 +1,31 @@
 package org.radio;
 
 public class Radio {
-    public int currentVolume;
-    public int currentStation;
+    private int currentVolume;
+    private int currentStation;
+
+    public Radio() {
+        this.currentStation = 0;
+        this.currentVolume = 0;
+    }
+
+    public Radio(int initialStation, int initialVolume) {
+        this.currentStation = initialStation;
+        this.currentVolume = initialVolume;
+    }
 
     public void setStation(int station) {
         if (station >= 0 && station <= 9) {
             currentStation = station;
         }
+    }
+
+    public int getCurrentStation() {
+        return currentStation;
+    }
+
+    public int getCurrentVolume() {
+        return currentVolume;
     }
 
     public void next() {
