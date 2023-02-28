@@ -65,6 +65,28 @@ public class RadioTest {
     }
 
     @Test
+    void setNegativeStation(){
+        Radio radio = new Radio();
+        radio.setStation(-5);
+
+        int exp = 0;
+        int act = radio.currentStation;
+
+        assertEquals(exp, act);
+    }
+
+    @Test
+    void setUpLimitStation(){
+        Radio radio = new Radio();
+        radio.setStation(10);
+
+        int exp = 0;
+        int act = radio.currentStation;
+
+        assertEquals(exp, act);
+    }
+
+    @Test
     void incVolume(){
         Radio radio = new Radio();
         radio.currentVolume = 0;
